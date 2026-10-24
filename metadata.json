@@ -1,0 +1,8 @@
+{
+  "name": "خدماتي البرمجية | Khdamati Tech",
+  "description": "منصة احترافية لتصميم وتطوير مواقع الويب الحديثة للمشاريع الصغيرة والمتاجر مع تكامل الواتساب ورسوم متحركة تفاعلية.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

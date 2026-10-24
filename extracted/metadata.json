@@ -1,0 +1,8 @@
+{
+  "name": "Remix Remix خدماتي البرمجية",
+  "description": "منصة شخصية احترافية لعرض خدمات تصميم وبرمجة المواقع للمشاريع الصغيرة بمساعدة أدوات الذكاء الاصطناعي.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Tajawal', 'Cairo', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Cairo', 'Tajawal', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    direction: rtl;
+    text-align: right;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Custom scrollbar - Dark Mode */
+html.dark ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: #090d16;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #38bdf8;
+}
+
+/* Custom scrollbar - Light Mode */
+html:not(.dark) ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+html:not(.dark) ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+html:not(.dark) ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+html:not(.dark) ::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+
+/* Background grid and glows */
+.bg-mesh-pattern {
+  background-image: 
+    radial-gradient(circle at 85% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 15% 55%, rgba(16, 185, 129, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 75% 85%, rgba(99, 102, 241, 0.07) 0%, transparent 40%);
+  background-attachment: fixed;
+}
+
+.bg-mesh-pattern-light {
+  background-image: 
+    radial-gradient(circle at 85% 10%, rgba(14, 165, 233, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 15% 50%, rgba(16, 185, 129, 0.07) 0%, transparent 50%),
+    radial-gradient(circle at 75% 90%, rgba(99, 102, 241, 0.06) 0%, transparent 45%);
+  background-attachment: fixed;
+}
+
+.subtle-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.subtle-grid-light {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+}
+
+/* Animated glow and high-conversion keyframes */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.85;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 35px rgba(16, 185, 129, 0.6);
+  }
+}
+
+@keyframes shimmerGold {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+.shimmer-gold-gradient {
+  background: linear-gradient(90deg, rgba(245, 158, 11, 0.15) 0%, rgba(251, 191, 36, 0.45) 50%, rgba(245, 158, 11, 0.15) 100%);
+  background-size: 200% 100%;
+  animation: shimmerGold 3s linear infinite;
+}
