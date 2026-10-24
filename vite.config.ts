@@ -8,16 +8,18 @@ import { defineConfig } from 'vite';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig(({ command }) => {
-  // Respect VITE_BASE_PATH if provided, or derive from GitHub repository (e.g. /a1/),
-  // defaulting to '/a1/' in build mode for repository https://amoal2030.github.io/a1/,
-  // while keeping local dev server at '/' for port 3000.
-  const repoName = process.env.GITHUB_REPOSITORY
+  // Normalize base path for GitHub Pages repository (defaulting to '/a1/'),
+  // ensuring proper trailing slash, while keeping local dev server at '/' for port 3000.
+  let repoName = process.env.GITHUB_REPOSITORY
     ? `/${process.env.GITHUB_REPOSITORY.split('/')[1]}/`
     : '/a1/';
 
-  const base = command === 'build'
-    ? (process.env.VITE_BASE_PATH || repoName)
-    : '/';
+  let rawBase = process.env.VITE_BASE_PATH || repoName;
+  if (!rawBase.endsWith('/')) {
+    rawBase += '/';
+  }
+
+  const base = command === 'build' ? rawBase : '/';
 
   return {
     base,
